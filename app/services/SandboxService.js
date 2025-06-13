@@ -26,6 +26,13 @@ class SandboxService {
     const openedGift = new Gift(response.data)
     AppState.sandboxGifts.splice(openGiftIndex, 1, openedGift)
   }
+
+  async createGift(formData) {
+    const response = await api.post('api/gifts', formData)
+    console.log('CREATED GIFT WOOOO', response.data);
+    const newGift = new Gift(response.data)
+    AppState.sandboxGifts.push(newGift)
+  }
 }
 
 

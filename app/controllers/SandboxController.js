@@ -2,9 +2,10 @@ import { AppState } from "../AppState.js";
 import { Identity } from "../Auth/Identity.js";
 Identity
 import { sandBoxService } from "../services/SandboxService.js";
+import { getFormData } from "../utils/FormHandler.js";
 import { Pop } from "../utils/Pop.js";
 import { setHTML } from "../utils/Writer.js";
-
+getFormData
 export class SandboxController {
   constructor() {
     console.log("SANDBOX CONTROLLER IS HERE!");
@@ -36,11 +37,14 @@ export class SandboxController {
   }
 
 
-  async createGift(formData) {
+  async createGift() {
+    event.preventDefault()
+    const formElem = event.target
+    const sentGift = getFormData(formElem)
     try {
-      await sandBoxService.createGift(formData)
+      sandBoxService.createGift(sentGift)
     } catch (error) {
-      console.error('Failed to create new gift', error)
+      console.error("Failed to create a new Gift", error);
     }
   }
 }
