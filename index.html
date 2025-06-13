@@ -27,19 +27,23 @@
       <div class="row">
         <div class="col-md-3">
           <form onsubmit="app.sandBoxController.createGift()" id="gift-form" class="mb-3">
-            <label for="gift-tag">Gift Tag</label>
-            <input id="gift-tag" type="text" name="tag">
-            <label for="gift-url">Gift url</label>
-            <input id="gift-url" type="url" name="url">
-            <button class="btn btn-primary">Submit</button>
+            <div class="d-flex align-items-center p-2 gap-1">
+              <label for="gift-tag">Gift Tag</label>
+              <input id="gift-tag" type="text" name="tag">
+            </div>
+            <div class="d-flex align-items-center p-2 gap-1">
+              <label for="gift-url">Gift URL</label>
+              <input id="gift-url" type="url" name="url">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </form>
           <form onsubmit="app.giftController.searchGif()">
-            <div class="input-group">
+            <div class="input-group d-flex align-items-center p-2 gap-1">
               <label for="gif-search">GIF Search</label>
-              <input type="text" name="query" class="form-control" required>
-              <button type="submit" class="btn btn-outline-success" data-bs-toggle="offcanvas"
-                data-bs-target="#gifs-offcanvas"><i class="mdi mdi-magnify"></i></button>
+              <input id="gif-search" type="text" name="query" class="form-control" required>
             </div>
+            <button type="submit" class="btn btn-outline-success" data-bs-toggle="offcanvas"
+              data-bs-target="#gifs-offcanvas"><i class="mdi mdi-magnify"></i>Search</button>
           </form>
         </div>
         <div class="col-md-9">
