@@ -2,13 +2,12 @@
 
 
 const gifApi = axios.create({
-  baseURL: 'api.giphy.com/v1/gifs/search',
+  baseURL: 'https://api.giphy.com',
   params: {
     api_key: 'ZVB1pWO81bCqoBkMaGAPnAjud1UhACoS',
     rating: 'pg'
   },
   timeout: 8000,
-  withCredentials: true
 })
 
 
@@ -17,7 +16,8 @@ const gifApi = axios.create({
 class GiftService {
 
   async gifSearch(userInput) {
-    const response = await gifApi.get(`q=${userInput}`)
+    const searchRoute = 'v1/gifs/search'
+    const response = await gifApi.get(searchRoute, { params: { q: userInput } })
     console.log("GOT GIF SEARCH RESULTS", userInput);
 
   }
